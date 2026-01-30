@@ -36,12 +36,14 @@ The database includes "sample data" for testing queries and reports.
 
 
  * Distinct payment methods:
-
+ * 
+ ```sql
 SELECT DISTINCT Method FROM Payment;
 
 
 * Total revenue from completed payments:
 
+ ```sql
 SELECT SUM(Amount) AS Total_Revenue_Completed
 FROM Payment
 WHERE Status = 'Completed';
@@ -49,6 +51,7 @@ WHERE Status = 'Completed';
 
 * Customers with total payment > 8,000:
 
+ ```sql
 SELECT c.CustomerID, c.FirstName || ' ' || c.LastName AS CustomerName
 FROM Customer c
 WHERE c.CustomerID IN (

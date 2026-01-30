@@ -34,35 +34,34 @@ The database includes "sample data" for testing queries and reports.
   FROM Booking
   WHERE TotalAmount BETWEEN 4000 AND 8000;
 
-
- * Distinct payment methods:
- * 
- ```sql
-SELECT DISTINCT Method FROM Payment;
-
-
-* Total revenue from completed payments:
-
- ```sql
-SELECT SUM(Amount) AS Total_Revenue_Completed
-FROM Payment
-WHERE Status = 'Completed';
+- **Distinct payment methods:**
+   
+  ```sql
+  SELECT DISTINCT Method FROM Payment;
 
 
-* Customers with total payment > 8,000:
+- **Total revenue from completed payments:**
 
- ```sql
-SELECT c.CustomerID, c.FirstName || ' ' || c.LastName AS CustomerName
-FROM Customer c
-WHERE c.CustomerID IN (
-    SELECT b.CustomerID
-    FROM Booking b
-    JOIN Payment p ON b.BookingID = p.BookingID
-    GROUP BY b.CustomerID
-    HAVING SUM(p.Amount) > 8000
-);
+  ```sql
+  SELECT SUM(Amount) AS Total_Revenue_Completed
+  FROM Payment
+  WHERE Status = 'Completed';
 
-Notes
+
+- **Customers with total payment > 8,000:**
+
+  ```sql
+  SELECT c.CustomerID, c.FirstName || ' ' || c.LastName AS CustomerName
+  FROM Customer c
+  WHERE c.CustomerID IN (
+     SELECT b.CustomerID
+     FROM Booking b
+     JOIN Payment p ON b.BookingID = p.BookingID
+     GROUP BY b.CustomerID
+     HAVING SUM(p.Amount) > 8000
+   );
+
+-**Notes**
 
 1.Foreign key constraints prevent deletion of parent rows if child records exist.
 

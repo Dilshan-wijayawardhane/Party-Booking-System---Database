@@ -1,4 +1,3 @@
-```sql
 -- Customer Table
 CREATE TABLE Customer (
     CustomerID NUMBER(5),
@@ -174,6 +173,7 @@ INSERT INTO Payment VALUES (107,7,TO_DATE('2025-12-07','YYYY-MM-DD'),4000,'Bank 
 INSERT INTO Payment VALUES (108,8,TO_DATE('2025-12-08','YYYY-MM-DD'),4500,'Cash','Completed');
 
 SELECT * FROM Payment;
+
 
 
 

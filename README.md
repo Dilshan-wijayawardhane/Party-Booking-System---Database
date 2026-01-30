@@ -1,7 +1,9 @@
 Party Booking System - Database
 
-Description
-This is the "database part" of a Party Booking System. It manages:  
+Description - 
+This is the "database part" of a Party Booking System. 
+
+It manages:  
 - Customers  
 - Bookings  
 - Event packages  
